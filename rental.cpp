@@ -322,7 +322,29 @@ void cariPlat(){
     cout << endl;
 }
 
+//TAMPIL DATA
+void tampil(){
+    if (head == NULL) {
+            cout << "Belum ada data motor" << endl;
+            return;
+    }
 
+    motor* bantu = head;
+
+    cout << "---------------------------------------------------------------------------------" << endl;
+    cout << "| NO | NAMA MOTOR          | PLAT     | TAHUN        | HARGA       |   STATUS   |" << endl;
+    cout << "---------------------------------------------------------------------------------" << endl;
+    
+    int no = 1;
+    while (bantu != NULL){
+        printf("| %-3d| %-20s| %-9s| %-13d| %-12d| %-11s|\n", 
+            no++, bantu->namaMtr, bantu->plat, bantu->tahun, bantu->harga, bantu->status);
+        bantu = bantu->next;
+    }
+    cout << "---------------------------------------------------------------------------------" << endl;
+    cout << endl;
+
+}
 
 int main() {
     loadfile();
