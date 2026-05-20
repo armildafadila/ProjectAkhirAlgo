@@ -82,14 +82,14 @@ void tambahData(){
     cout << "-----------------------------------------"<< endl;
     cout << "|           TAMBAH DATA MOTOR           |"<< endl;
     cout << "-----------------------------------------"<< endl;
-    cout << "Nama Motor                 : "; 
+    cout << "Nama Motor (vario, cbr250rr) : "; 
     cin.ignore(1000, '\n');
     cin.getline(baru->namaMtr, 50);
-    cout << "Plat (ABXXXXCD)            : ";
+    cout << "Plat (ABXXXXCD)              : ";
     cin >> baru->plat;
-    cout << "Tahun                      : ";
+    cout << "Tahun                        : ";
     cin >> baru->tahun;
-    cout << "Harga /24Jam (ex:70000)    : ";
+    cout << "Harga /24Jam (ex:70000)      : ";
     cin >> baru->harga;
     cout << "-----------------------------------------"<< endl;
 
@@ -173,7 +173,7 @@ void sewaMotor() {
     cout << "-----------------------------------------"<< endl;
     cout << "|               SEWA MOTOR              |"<< endl;
     cout << "-----------------------------------------"<< endl;
-    cout << "| Nama Motor : ";
+    cout << "| Nama Motor (masukkan nama tanpa spasi): ";
     cin.ignore(1000, '\n');
     cin.getline(key, 50);
 
@@ -220,7 +220,7 @@ void kembaliMotor(){
     cout << "-----------------------------------------"<< endl;
     cout << "|            KEMBALIKAN MOTOR           |"<< endl;
     cout << "-----------------------------------------"<< endl;
-    cout << "| Nama Motor : " ;
+    cout << "| Nama Motor (masukkan tanpa spasi): " ;
     cin.ignore(1000, '\n');
     cin.getline(namaCari, 50);
 
