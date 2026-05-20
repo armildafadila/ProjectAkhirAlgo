@@ -83,7 +83,6 @@ void tambahData(){
     cout << "|           TAMBAH DATA MOTOR           |"<< endl;
     cout << "-----------------------------------------"<< endl;
     cout << "Nama Motor (vario, cbr250rr) : "; 
-    cin.ignore(1000, '\n');
     cin.getline(baru->namaMtr, 50);
     cout << "Plat (ABXXXXCD)              : ";
     cin >> baru->plat;
@@ -91,6 +90,7 @@ void tambahData(){
     cin >> baru->tahun;
     cout << "Harga /24Jam (ex:70000)      : ";
     cin >> baru->harga;
+    cin.ignore(1000, '\n');
     cout << "-----------------------------------------"<< endl;
 
     //defaultnya yang tampil
@@ -113,7 +113,6 @@ void tambahData(){
     cout << "Data berhasil ditambahkan! " << endl;
     cout << endl;
     simpanFile(); // langsung simpan ke file
-    cin.ignore(1000, '\n');
 }
 
 
@@ -191,9 +190,11 @@ void sewaMotor() {
             cout << "-----------------------------------------"<< endl;
             cout << "Harga                      : " << bantu->harga << endl;
             cout << "Nama Penyewa               : ";
+            cin.ignore(1000, '\n');
             cin.getline (bantu->penyewa, 60);
             cout << "Lama Sewa (jml hari) ex: 2 : ";
             cin >> hari;
+            cin.ignore(1000, '\n');
 
             bantu->total = bantu->harga * hari;
             strcpy(bantu->status, "disewa");
@@ -228,7 +229,10 @@ void kembaliMotor(){
 
     while (bantu != NULL) {
         if (strcmpIgnoreCase(bantu->namaMtr, namaCari) == 0){
-
+            if (strcmp(bantu->status, "tersedia") == 0){
+                cout << "Motor ini belum disewa!" << endl;
+                return;
+            }
             strcpy(bantu->status, "tersedia");
             strcpy(bantu->penyewa, "-");
             bantu->total = 0;
@@ -293,6 +297,7 @@ void cariPlat(){
     cout << "-----------------------------------------" << endl;
     cout << "| Masukan plat motor : ";
     cin >> cari;
+    cin.ignore(1000, '\n');
 
     motor* bantu = head;
 
@@ -325,27 +330,35 @@ void cariPlat(){
 //TAMPIL DATA
 void tampil(){
     if (head == NULL) {
-            cout << "Belum ada data motor" << endl;
-            return;
+        cout << "Belum ada data motor" << endl;
+        return;
     }
-
+ 
     motor* bantu = head;
-
-    cout << "---------------------------------------------------------------------------------" << endl;
-    cout << "| NO | NAMA MOTOR          | PLAT     | TAHUN        | HARGA       |   STATUS   |" << endl;
-    cout << "---------------------------------------------------------------------------------" << endl;
-    
+ 
+    cout << "----------------------------------------------------------------------------------------------------------------------------" << endl;
+    cout << "|                                          DATA MOTOR SAAT INI                                                             |" << endl;
+    cout << "----------------------------------------------------------------------------------------------------------------------------" << endl;
+    printf("| %-3s | %-18s | %-10s | %-6s | %-12s | %-10s | %-25s | %-12s |\n",
+        "NO", "NAMA MOTOR", "PLAT", "TAHUN", "HARGA/HARI", "STATUS", "PENYEWA", "TOTAL BAYAR");
+    cout << "----------------------------------------------------------------------------------------------------------------------------" << endl;
+ 
     int no = 1;
     while (bantu != NULL){
-        printf("| %-3d| %-20s| %-9s| %-13d| %-12d| %-11s|\n", 
-            no++, bantu->namaMtr, bantu->plat, bantu->tahun, bantu->harga, bantu->status);
+        printf("| %-3d | %-18s | %-10s | %-6d | %-12d | %-10s | %-25s | %-12d |\n",
+            no++,
+            bantu->namaMtr,
+            bantu->plat,
+            bantu->tahun,
+            bantu->harga,
+            bantu->status,
+            bantu->penyewa,
+            bantu->total);
         bantu = bantu->next;
     }
-    cout << "---------------------------------------------------------------------------------" << endl;
+    cout << "----------------------------------------------------------------------------------------------------------------------------" << endl;
     cout << endl;
-
 }
-
 
 // SWAP UNTUK MENUKAR
 void swapData(motor* a, motor* b){
@@ -434,8 +447,9 @@ int main() {
         cout << "=========================================" << endl;
         cout << "| Pilih Menu: ";
         cin >> pilih;
-        cout << endl;
 
+        cout << endl;
+        cin.ignore(1000, '\n');
         switch (pilih)
         {
         case 1 :  
@@ -492,13 +506,11 @@ int main() {
                     break;
                 case 3:
                     break;
-                    cout << endl;
                 default:
                     cout << "Pilihan tidak valid!" << endl;
                     break;
                 }
             }while(subpilih != 3);
-            cout << endl;
         break;
 
         case 3 :
