@@ -117,7 +117,43 @@ void tambahData(){
 }
 
 
+// HAPUS MOTOR 
+void hapusData(){
+    char hapus[15];
 
+    cout << "-----------------------------------------"<< endl;
+    cout << "|            HAPUS DATA MOTOR           |"<< endl;
+    cout << "-----------------------------------------"<< endl;
+    cout << "| Masukkan Plat Nomer yang ingin dihapus" << endl;
+    cout << "| Plat motor (ABXXXXCD) : ";
+    cin.ignore(1000, '\n');
+    cin.getline(hapus, 15);
+
+    motor *bantu = head;
+    motor *prev = NULL;
+
+    while (bantu != NULL)
+    {
+        if(strcmp(bantu->plat, hapus) == 0){
+            if (prev == NULL)
+                head = bantu->next;
+            else
+                prev->next = bantu->next;
+            
+            delete bantu;
+            
+            cout << "-----------------------------------------"<< endl;
+            cout << "Data Berhasil dihapus" << endl;
+            cout << endl;
+            simpanFile();
+            return;
+        }
+        prev = bantu;
+        bantu = bantu->next;
+    }
+    cout << "Data tidak ada" << endl;
+    cout << endl;
+}
 
 
 
