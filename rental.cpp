@@ -231,3 +231,22 @@ int main() {
         }while(subpilih != 3);
         cout << endl;
         break;
+
+        case 5 :  
+            cout << "---------------------------------------------------------------------------------" << endl;
+            cout << "|                              DATA MOTOR SAAT INI                              |" << endl;
+            tampil();
+            cout << endl;
+        break;
+        case 6 :  
+            cout << "Terima kasih telah menggunakan sistem admin sewa motor!" << endl;
+            cout << endl;
+        break;
+        default:
+            cout << "Pilihan tidak valid!" << endl;
+            cout << endl;
+        break;
+        }
+
+    }while(pilih != 6);
+};
