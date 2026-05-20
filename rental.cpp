@@ -346,6 +346,24 @@ void tampil(){
 
 }
 
+
+// SWAP UNTUK MENUKAR
+void swapData(motor* a, motor* b){
+    char tmpstr[60];
+    int tmpint;
+
+    // tukar semua field string
+    strcpy(tmpstr, a->namaMtr); strcpy(a->namaMtr, b->namaMtr); strcpy(b->namaMtr, tmpstr);
+    strcpy(tmpstr, a->plat); strcpy(a->plat, b->plat); strcpy(b->plat, tmpstr);
+    strcpy(tmpstr, a->status); strcpy(a->status, b->status); strcpy(b->status, tmpstr);
+    strcpy(tmpstr, a->penyewa); strcpy(a->penyewa, b->penyewa); strcpy(b->penyewa, tmpstr);
+
+    // tukar semua field angka
+    tmpint = a->tahun; a->tahun = b->tahun; b->tahun = tmpint;
+    tmpint = a->harga; a->harga = b->harga; b->harga = tmpint;
+    tmpint = a->total; a->total = b->total; b->total = tmpint;
+}
+
 int main() {
     loadfile();
 
