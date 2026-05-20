@@ -37,3 +37,39 @@ void simpanFile(){
     }
     fclose(fp);
 }
+
+// LOAD FILE
+void loadfile() {
+    FILE *fp = fopen("rentalMotor.txt", "r"); //buka file untuk dibaca
+    if (fp == NULL) return; // gaada file keluar
+
+    while (true) {
+        motor* baru = new motor; //node baru
+
+        if (fscanf(fp, "%[^;];%[^;];%d;%d;%[^;];%[^;];%d\n",
+            baru->namaMtr, 
+            baru->plat, 
+            &baru->tahun, 
+            &baru->harga, 
+            baru->status, 
+            baru->penyewa, 
+            &baru->total) != 7) // jika tidak lengkap lanjut ke "delete baru"
+            {
+                delete baru;
+                break;
+            }
+
+            baru->next = NULL; 
+
+            if(head == NULL) {
+                head = baru;
+            } else {
+                motor* bantu = head;
+                while (bantu->next != NULL){
+                    bantu = bantu->next;
+                }
+                bantu->next = baru;
+            }
+    }
+    fclose(fp);
+}
