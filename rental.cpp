@@ -284,6 +284,43 @@ void cariNama(){
     cout << endl;
 }
 
+// CARI DENGAN PLAT
+void cariPlat(){
+    char cari[20];
+
+    cout << "-----------------------------------------" << endl;
+    cout << "|         CARI DENGAN PLAT MOTOR        |" << endl;
+    cout << "-----------------------------------------" << endl;
+    cout << "| Masukan plat motor : ";
+    cin >> cari;
+
+    motor* bantu = head;
+
+    //sequential search
+    while (bantu != NULL){
+
+        if(strcmpIgnoreCase(bantu->plat, cari) == 0){
+
+            cout << "-----------------------------------------" << endl;
+            cout << "Motor Berhasil Ditemukan!"                 << endl;
+            cout << "-----------------------------------------" << endl;
+            cout << "Nama    : " << bantu->namaMtr << endl;
+            cout << "Plat    : " << bantu->plat    << endl;
+            cout << "Tahun   : " << bantu->tahun   << endl;
+            cout << "Harga   : " << bantu->harga   << endl;
+            cout << "Status  : " << bantu->status  << endl;
+            cout << "Penyewa : " << bantu->penyewa  << endl;
+            cout << "Total   : " << bantu->total   << endl;
+            cout << "-----------------------------------------" << endl;
+            cout << endl;
+            return;
+        }
+        bantu = bantu->next;
+    }
+
+    cout << "Motor Tidak Ditemukan!" << endl;
+    cout << endl;
+}
 
 
 
