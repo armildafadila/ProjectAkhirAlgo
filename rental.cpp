@@ -169,3 +169,65 @@ int main() {
             }while(subpilih != 3);
             cout << endl;
         break;
+
+        case 3 :
+        subpilih = 0;
+        do{
+            cout << "=========================================" << endl;
+            cout << "|          PENCARIAN DATA MOTOR         |" << endl;
+            cout << "=========================================" << endl; 
+            cout << "| 1.| Cari Berdasarkan Nama Motor       |" << endl;
+            cout << "| 2.| Cari Berdasarkan Plat Nomor       |" << endl;
+            cout << "| 3.| Kembali Ke Menu Utama             |" << endl;
+            cout << "=========================================" << endl;    
+            cout << "| Pilih Sub Menu: ";
+            cin >> subpilih;
+
+                switch (subpilih)
+                {
+                case 1:
+                    cariNama();
+                    break;
+                case 2:
+                    cariPlat();
+                    break;
+                case 3:
+                    break;
+                default:
+                    cout << "Pilihan tidak valid" << endl;
+                    break;
+                }
+        }while (subpilih != 3);
+        cout << endl;
+        break;
+
+        case 4 :
+        subpilih = 0;
+        do{
+            cout << "=========================================" << endl;
+            cout << "|           URUTKAN DATA MOTOR          |" << endl;
+            cout << "=========================================" << endl;
+            cout << "| 1.| Urutkan Berdasarkan Harga         |" << endl;
+            cout << "| 2.| Urutkan Berdasarkan Nomor Plat    |" << endl;
+            cout << "| 3.| Kembali Ke Menu Utama             |" << endl;    
+            cout << "=========================================" << endl;
+            cout << "| Pilih Sub Menu: ";
+            cin >> subpilih;
+
+                switch (subpilih)
+                {
+                case 1:
+                    urutHarga();
+                    break;
+                case 2:
+                    urutPlat();
+                    break;
+                case 3:
+                    break;
+                default:
+                    cout << "Pilihan Tidak Valid" << endl;
+                    break;
+                }
+        }while(subpilih != 3);
+        cout << endl;
+        break;
