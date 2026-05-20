@@ -165,7 +165,53 @@ int strcmpIgnoreCase(const char* a, const char* b) {
     return tolower(*a) - tolower(*b);
 }
 
+//SEWA MOTOR
+void sewaMotor() {
+    char key[50];
+    int hari;
 
+    cout << "-----------------------------------------"<< endl;
+    cout << "|               SEWA MOTOR              |"<< endl;
+    cout << "-----------------------------------------"<< endl;
+    cout << "| Nama Motor : ";
+    cin.ignore(1000, '\n');
+    cin.getline(key, 50);
+
+    motor* bantu = head;
+
+    while (bantu != NULL){
+        if(strcmpIgnoreCase(bantu->namaMtr, key) == 0){
+
+
+            if(strcmp(bantu->status, "disewa") == 0){
+                cout << "Motor sudah disewa!\n";
+                return;
+            }
+            
+            cout << "-----------------------------------------"<< endl;
+            cout << "Harga                      : " << bantu->harga << endl;
+            cout << "Nama Penyewa               : ";
+            cin.getline (bantu->penyewa, 60);
+            cout << "Lama Sewa (jml hari) ex: 2 : ";
+            cin >> hari;
+
+            bantu->total = bantu->harga * hari;
+            strcpy(bantu->status, "disewa");
+            cout << "-----------------------------------------"<< endl;
+            cout << "TOTAL BIAYA                : " << bantu->total << endl;
+            cout << "Motor Berhasil Disewa, status berubah" << endl;
+            cout << endl;
+
+            simpanFile();
+            return; 
+        }
+
+        bantu = bantu->next;
+    }
+
+    cout << "Motor tidak ditemukan!" << endl;
+    cout << endl;
+}
 
 
 
