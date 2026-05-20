@@ -364,6 +364,33 @@ void swapData(motor* a, motor* b){
     tmpint = a->total; a->total = b->total; b->total = tmpint;
 }
 
+// urutkan harga dari yang paling murah
+void urutHarga(){
+    if (head == NULL || head->next == NULL) return;
+
+    bool tukar;
+    do {
+        tukar = false;
+        motor* skrg = head;
+
+        while (skrg->next != NULL){
+            // [i] badingkan node sekarang degan node berikutnya
+            if (skrg->harga > skrg->next->harga){
+                // [ii] kalau harga sekarang lebih besar -> tukar
+                swapData(skrg, skrg->next);
+                tukar = true;
+            }
+            skrg = skrg->next;
+        }
+    } while (tukar);
+
+    cout << "---------------------------------------------------------------------------------" << endl;
+    cout << "|                         DATA URUT DARI HARGA TERENDAH                         |" << endl;
+    tampil();
+    simpanFile();
+}
+
+
 int main() {
     loadfile();
 
