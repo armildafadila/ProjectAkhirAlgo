@@ -391,6 +391,30 @@ void urutHarga(){
 }
 
 
+// urutkan plat A-Z
+void urutPlat(){
+    if(head == NULL || head->next == NULL) return;
+
+    bool tukar;
+    do {
+        tukar = false;
+        motor* skrg = head;
+
+        while (skrg->next != NULL){
+            if (strcmp(skrg->plat, skrg->next->plat) > 0) {
+                swapData(skrg, skrg->next);
+                tukar = true;
+            }
+            skrg = skrg->next;
+        }
+    } while (tukar);
+    
+    cout << "---------------------------------------------------------------------------------" << endl;
+    cout << "|                         DATA URUT DARI PLAT TERKECIL                          |" << endl;
+    tampil();
+    simpanFile();
+}
+
 int main() {
     loadfile();
 
