@@ -155,6 +155,16 @@ void hapusData(){
     cout << endl;
 }
 
+// BIAR KALAU INPUT HURUF BESAR KECIL TETEP BISA DAPET DATANYA
+// fungsi compare tidak peduli kapital
+int strcmpIgnoreCase(const char* a, const char* b) {
+    while (*a && *b) {
+        if (tolower(*a) != tolower(*b)) return 1;
+        a++; b++;
+    }
+    return tolower(*a) - tolower(*b);
+}
+
 
 
 
