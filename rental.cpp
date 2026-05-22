@@ -85,7 +85,7 @@ void tambahData(){
     cout << "Nama Motor (vario, cbr250rr) : "; 
     cin.getline(baru->namaMtr, 50);
     cout << "Plat (ABXXXXCD)              : ";
-    cin >> baru->plat;
+    cin.getline(baru->plat, 15);
     cout << "Tahun                        : ";
     cin >> baru->tahun;
     cout << "Harga /24Jam (ex:70000)      : ";
@@ -125,7 +125,6 @@ void hapusData(){
     cout << "-----------------------------------------"<< endl;
     cout << "| Masukkan Plat Nomer yang ingin dihapus" << endl;
     cout << "| Plat motor (ABXXXXCD) : ";
-    cin.ignore(1000, '\n');
     cin.getline(hapus, 15);
 
     motor *bantu = head;
@@ -173,7 +172,6 @@ void sewaMotor() {
     cout << "|               SEWA MOTOR              |"<< endl;
     cout << "-----------------------------------------"<< endl;
     cout << "| Nama Motor (masukkan nama tanpa spasi): ";
-    cin.ignore(1000, '\n');
     cin.getline(key, 50);
 
     motor* bantu = head;
@@ -190,7 +188,6 @@ void sewaMotor() {
             cout << "-----------------------------------------"<< endl;
             cout << "Harga                      : " << bantu->harga << endl;
             cout << "Nama Penyewa               : ";
-            cin.ignore(1000, '\n');
             cin.getline (bantu->penyewa, 60);
             cout << "Lama Sewa (jml hari) ex: 2 : ";
             cin >> hari;
@@ -222,7 +219,6 @@ void kembaliMotor(){
     cout << "|            KEMBALIKAN MOTOR           |"<< endl;
     cout << "-----------------------------------------"<< endl;
     cout << "| Nama Motor (masukkan tanpa spasi): " ;
-    cin.ignore(1000, '\n');
     cin.getline(namaCari, 50);
 
     motor* bantu = head;
@@ -258,7 +254,6 @@ void cariNama(){
     cout << "|         CARI DENGAN NAMA MOTOR        |" << endl;
     cout << "-----------------------------------------" << endl;
     cout << "| Masukkan Nama Motor : ";
-    cin.ignore(1000, '\n');
     cin.getline(cari, 50);
 
     motor* bantu = head;
@@ -462,6 +457,7 @@ int main() {
                 cout << "=========================================" << endl;
                 cout << "| Pilih Sub Menu: ";
                 cin >> subpilih;
+                cin.ignore(1000, '\n');
 
                 switch (subpilih)
                 {
@@ -493,6 +489,7 @@ int main() {
                 cout << "=========================================" << endl;
                 cout << "| Pilih Sub Menu: ";
                 cin >> subpilih;
+                cin.ignore(1000, '\n');
 
                 switch (subpilih)
                 {
@@ -523,6 +520,7 @@ int main() {
             cout << "=========================================" << endl;    
             cout << "| Pilih Sub Menu: ";
             cin >> subpilih;
+            cin.ignore(1000, '\n');
 
                 switch (subpilih)
                 {
@@ -554,6 +552,7 @@ int main() {
             cout << "=========================================" << endl;
             cout << "| Pilih Sub Menu: ";
             cin >> subpilih;
+            cin.ignore(1000, '\n');
 
                 switch (subpilih)
                 {
